@@ -20,24 +20,37 @@ Item.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        availability: {
+        claimed: {
             type: DataTypes.BOOLEAN,
+            defaultValue: false,
             allowNull: false,
         },
-        claim_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: User,
                 key: 'id'
             }
+        },
+        location_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: Location,
+                key: 'id'
+            }
+        },
+        contactInfo: { //only shown to new owner when claimed
+            type: DataTypes.STRING,
+            allowNull: false,
         }
+
     },
     {
       sequelize,
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'post',
+      modelName: 'item',
     }
 );
 
