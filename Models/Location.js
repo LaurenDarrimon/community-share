@@ -16,7 +16,7 @@ Location.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        item_id: {
+         item_id:{
             type: DataTypes.INTEGER,
             references: {
                 model: Item,

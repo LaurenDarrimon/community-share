@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {Item} = require('../../Models/index');
 
-router.post('/:location', async (req, res) => {
+router.post('/post/:location', async (req, res) => {
     try {
         const newItem = await Item.create({
             title: req.body.title,
@@ -17,7 +17,15 @@ router.post('/:location', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+});
+
+router.delete('/delete/:id', async (req, res) => {
+    const item = await Item.destroy({
+        where: {
+            id: req.params.id,
+        }
+    })
 })
 
 
-module.exports
+module.exports = router;
