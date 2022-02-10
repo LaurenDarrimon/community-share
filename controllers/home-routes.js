@@ -47,11 +47,11 @@ router.get('/items/:id', async (req, res) => {
           },
           {
             model: Location,
-            attributes: ['name'],
+            attributes: ['city'],
           },
           {
             model: Comment,
-            attributes: ['author', 'commentText'],
+            attributes: ['content'],
           },
         ],
       });
