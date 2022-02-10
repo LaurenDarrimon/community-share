@@ -4,7 +4,6 @@ const { Location, User, Item, Comment}  = require('../models/');
 
 
 //show all items posted by user /dashboard
-
 router.get('/', async (req, res) => {
     try{
         const itemData = await Item.findAll({
@@ -44,7 +43,7 @@ router.get('/', async (req, res) => {
 
 //show the form to make a new post /dashboard/post 
 //later add withAuth middleware
-router.get('/post/', async (req, res) => {
+router.get('/newitem/', async (req, res) => {
   return res.render('post', {
     user_id: req.session.user_id, 
     logged_in: req.session.logged_in });
