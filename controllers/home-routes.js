@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Items, Users, Locations } = require('../models');
+const { Comment, Item, Location, User } = require('../models');
 
 //SHOW ALL LOCATIONS
 router.get('/', async (req, res) => {
     try {
       // Get all Locations
-      const locationData = await Locations.findAll();
+      const locationData = await Location.findAll();
   
       //map location data into new array that can be read by handlebars
       const locations = locationData.map((location) => location.get({ plain: true }));
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 router.get('/:location', async (req, res) => {
     try {
       // Get all items where Locations matches url param
-      const itemData = await Items.findAll(
+      const itemData = await Item.findAll(
         { where: { location: req.params.location } }
       );
   
@@ -39,18 +39,18 @@ router.get('/:location', async (req, res) => {
 //ONE ITEM
 router.get('/items/:id', async (req, res) => {
     try {
-      const itemData = await Items.findByPk(req.params.id, {
+      const itemData = await Item.findByPk(req.params.id, {
         include: [
           {
-            model: Users,
+            model: User,
             attributes: ['name'],
           },
           {
-            model: Locations,
+            model: Location,
             attributes: ['name'],
           },
           {
-            model: Comments,
+            model: Comment,
             attributes: ['author', 'commentText'],
           },
         ],
