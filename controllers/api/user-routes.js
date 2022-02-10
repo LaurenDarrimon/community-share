@@ -4,7 +4,7 @@ const { User } = require("../../models");
 //API route to login - posts new information to session data
 router.post("/login", async (req, res) => {
 
-    console.log(req.body);
+    //console.log(req.body);
 
     const userData = await User.findOne({
       where: { name: req.body.name },
@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
 });
 
 //route to create a new user and login 
-router.post("/", async (req, res) => {
+router.post("/signup/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -54,7 +54,7 @@ router.post("/", async (req, res) => {
 });
 
 
-//LOGOUT
+//LOGOUT by destroying seesion cookies 
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -67,3 +67,4 @@ router.post("/logout", (req, res) => {
 
 
 module.exports = router;
+
