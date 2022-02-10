@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
       const locations = locationData.map((location) => location.get({ plain: true }));
   
       // Pass data to handlbars to render 
-      res.render('locations', {locations,} );
+      res.render('homepage', {locations,} );
     } catch (err) {
       res.status(500).json(err);
     }
@@ -19,25 +19,25 @@ router.get('/', async (req, res) => {
 
 
 //SHOW ITEMS by location 
-router.get('/:location', async (req, res) => {
+router.get('/location/:id', async (req, res) => {
     try {
       // Get all items where Locations matches url param
       const itemData = await Item.findAll(
-        { where: { location: req.params.location } }
+        { where: { name: req.params.location } }
       );
   
       //map item data into new array that can be read by handlebars
       const items = itemData.map((item) => item.get({ plain: true }));
   
       // Pass data to handlbars to render 
-      res.render('homepage', {items,} );
+      res.render('location', {items,} );
     } catch (err) {
       res.status(500).json(err);
     }
 });
 
 //ONE ITEM
-router.get('/items/:id', async (req, res) => {
+router.get('/item/:id', async (req, res) => {
     try {
       const itemData = await Item.findByPk(req.params.id, {
         include: [
@@ -69,7 +69,7 @@ router.get('/items/:id', async (req, res) => {
 //show login 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-      res.redirect('/dashboard'); //redirect to dashboard if the user is logged in
+      res.redirect('/'); //refresh page if the user is logged in
       return;
     } 
     res.render('login');
