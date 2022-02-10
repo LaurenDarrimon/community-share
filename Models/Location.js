@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const User = require('./User');
+const Item = require('./User');
 
 class Location extends Model { }
 
@@ -16,10 +16,10 @@ Location.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        user_id: {
+        item_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: User,
+                model: Item,
                 key: 'id'
             }
         }
