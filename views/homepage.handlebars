@@ -1,3 +1,19 @@
-{{#each categories as |category|}}
-{{> category-details}}
-{{/each}}
+{{!-- Welcome and description --}}
+<div class="row">
+    <div class="col-12 col-md-4 mt-5 custom-welcome">
+        <h1>Welcome
+            <p id="welcome-text">Elit sit incididunt cillum enim ad sint eu ullamco esse quis mollit. In cupidatat labore dolor sunt nulla ipsum aute. Cupidatat Lorem nisi commodo ea est consequat duis occaecat sint sint fugiat aliqua esse.
+                Ex deserunt ullamco ea mollit pariatur ex ea eiusmod laboris. Id enim aliqua exercitation sunt incididunt anim nulla laborum sunt. Proident laboris fugiat enim ad labore nulla nostrud tempor. Incididunt dolore esse esse incididunt consequat elit aliquip et cillum est incididunt adipisicing ex ut. Exercitation enim laboris sunt aliquip laborum. Cupidatat irure anim proident ea veniam ipsum incididunt nulla id laboris pariatur.
+            </p>
+        </h1>
+    </div>
+
+    {{!-- List of locations --}}
+    <div class="col-12 col-md-8 mt-5 d-flex flex-wrap justify-content-around custom-locations align-items-start">
+        {{#each locations as |location|}}
+            {{> location-details}}
+        {{/each}}
+    </div>
+</div>
+
+        
