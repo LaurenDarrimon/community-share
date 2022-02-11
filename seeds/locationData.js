@@ -1,4 +1,5 @@
-const {Location, Item} = require('../models');
+const {Location} = require('../models');
+const { Item } = require ('../Models')
 
 const locationData = [
     {
