@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Location, User, Item, Comment}  = require('../models/');
+const { Location, User, Item, Comment}  = require('../models');
 //const withAuth = require('../../utils/auth');
 
 
@@ -48,3 +48,5 @@ router.get('/newitem/', async (req, res) => {
     user_id: req.session.user_id, 
     logged_in: req.session.logged_in });
 });
+
+module.exports = router;
