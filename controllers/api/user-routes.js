@@ -15,7 +15,7 @@ router.post("/login", async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: "Wrong username or password, please try again!" });
+        .json({ message: "Incorrect username or password, please try again" });
       return;
     }
 
@@ -24,7 +24,7 @@ router.post("/login", async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Wrong username or password, please try again!" });
+        .json({ message: "Incorrect username or password, please try again" });
       return;
     }
 
@@ -43,8 +43,8 @@ router.post("/signup/", async (req, res) => {
     const userData = await User.create(req.body);
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
 
       res.status(200).json(userData);
     });
