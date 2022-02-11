@@ -23,6 +23,12 @@ User.init(
         password: {
             type: DataTypes.STRING,
 
+        },
+        location_id: {
+          references: {
+            model: Location,
+            key: 'id'
+          }
         }
     },
   {

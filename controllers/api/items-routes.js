@@ -19,7 +19,15 @@ router.post('/location/:id', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+});
+
+router.delete('/delete/:id', async (req, res) => {
+    const item = await Item.destroy({
+        where: {
+            id: req.params.id,
+        }
+    })
 })
 
 
-module.exports
+module.exports = router;
