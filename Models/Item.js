@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { User }= require('./User');
-const { Location } = require('./Location');
+const  User = require('./User');
+const  Location  = require('./Location');
 
 class Item extends Model {}
 
@@ -40,7 +40,7 @@ Item.init(
                 key: 'id'
             }
         },
-        contactInfo: { //only shown to new owner when claimed
+        contact_info: { //only shown to new owner when claimed
             type: DataTypes.STRING,
             allowNull: false,
         }
