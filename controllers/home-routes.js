@@ -42,11 +42,15 @@ router.get('/location/:id', async (req, res) => {
       }
     );
 
+    const locationData = await Location.findByPk(req.params.id);
+
+    const location = locationData.get({ plain: true });
+
     //map item data into new array that can be read by handlebars
     const items = itemData.map((item) => item.get({ plain: true }));
       console.log(items);
     // Pass data to handlbars to render 
-    res.render('location', { items, });
+    res.render('location', { items, location});
   } catch (err) {
     res.status(500).json(err);
   }
