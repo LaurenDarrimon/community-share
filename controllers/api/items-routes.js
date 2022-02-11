@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const {Item} = require('../../Models/index');
 
-router.post('/post/:location', async (req, res) => {
+
+//CREATE NEW item 
+router.post('/location/:id', async (req, res) => {
     try {
         const newItem = await Item.create({
             title: req.body.title,
