@@ -1,5 +1,5 @@
 const {Location} = require('../models');
-const { Item } = require ('../Models')
+const { Item } = require ('../models')
 
 const locationData = [
     {
@@ -17,7 +17,7 @@ const locationData = [
 
 ];
 
-const seedLocation = () => Location.bultCreate(locationData);
+const seedLocation = () => Location.bulkCreate(locationData);
 
 module.exports = seedLocation;
 
