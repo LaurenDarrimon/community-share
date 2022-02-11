@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
       const locations = locationData.map((location) => location.get({ plain: true }));
   
       // Pass data to handlbars to render 
-      res.render('homepage', locations );
+      res.render('homepage', { locations });
     } catch (err) {
       res.status(500).json(err);
     }
