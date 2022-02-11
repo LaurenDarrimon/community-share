@@ -9,7 +9,7 @@ router.post('/location/:id', async (req, res) => {
             title: req.body.title,
             description: req.body.description,
             user_id: req.session.user_id,
-            location_id: req.params.location,
+            location_id: req.params.id,
 
         });
         console.log(newPost);
