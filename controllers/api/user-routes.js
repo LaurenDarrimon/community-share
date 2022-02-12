@@ -44,13 +44,15 @@ router.post("/signup/", async (req, res) => {
       email: req.body.email
 
     });
-
+    console.log('user data: ', userData);
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
       res.status(200).json(userData);
+      console.log(req.session.logged_in);
     });
+   
 
   } catch (err) {
     res.status(400).json(err);

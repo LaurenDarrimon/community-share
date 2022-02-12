@@ -16,7 +16,8 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the location page
-      document.location.replace(`/location/${user.location_id}`);
+      // document.location.replace(`/location/${user.location_id}`);
+      document.location.replace(`/`);
     } else {
       console.error("Incorrect email or password")
     }
@@ -33,6 +34,7 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
+  console.log(username, password, email);
 
   if (username && email && password) {
     const response = await fetch('/api/users/signup', {
@@ -40,7 +42,7 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({ username, email, password}),
       headers: { 'Content-Type': 'application/json' },
     });
-
+    console.log('response: ',response);
     if (response.ok) {
       document.location.replace('/');
     } else {
