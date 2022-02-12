@@ -25,13 +25,18 @@ User.init(
             type: DataTypes.STRING,
 
         },
-        location_id: {
-          type: DataTypes.INTEGER,
-          references: {
-            model: Location,
-            key: 'id'
-          }
-        }
+        email: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          unique: true,
+        },
+        // location_id: {
+        //   type: DataTypes.INTEGER,
+        //   references: {
+        //     model: Location,
+        //     key: 'id'
+        //   }
+        // }
     },
   {
     hooks: {

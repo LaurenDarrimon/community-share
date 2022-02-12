@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const { Location, User, Item, Comment } = require("../models");
-//const withAuth = require('../../utils/auth');
+const withAuth = require('../utils/auth');
 
 //show all items posted by user /dashboard
-router.get("/:id", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const unclaimedItemData = await Item.findAll({
       where: {
-        user_id: req.params.id,
+        user_id: req.session.user_id,
         claimed:true,
       },
       include: [
@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
 
     const claimedData = await Item.findAll({
       where: {
-        user_id: req.params.id,
+        user_id: req.session.user_id,
         claimed:false,
       },
       include: [
@@ -64,7 +64,7 @@ router.get("/:id", async (req, res) => {
 
   
 
-    res.render("dashboard", { unclaimed, claimed, user });
+    res.render("dashboard", req.session.user_id, req.session.logged_in, { unclaimed, claimed, user, });
   } catch (err) {
     res.status(400).json(err);
   }
