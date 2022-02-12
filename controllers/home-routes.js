@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
     //map location data into new array that can be read by handlebars
     const locations = locationData.map((location) => location.get({ plain: true }));
-
+    console.log(locations, req.session.user_id);
     // Pass data to handlbars to render 
     res.render('homepage', {       
       user_id: req.session.user_id,
