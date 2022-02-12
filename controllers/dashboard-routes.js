@@ -72,11 +72,28 @@ router.get("/:id", async (req, res) => {
 
 //show the form to make a new post /dashboard/post
 //later add withAuth middleware
-router.get("/newitem/", async (req, res) => {
-  return res.render("post", {
-    user_id: req.session.user_id,
-    logged_in: req.session.logged_in,
-  });
+router.get("/:id/newitem/", async (req, res) => {
+  try{
+    //USER get data
+    const userData = await User.findByPk(req.params.id, {
+      include: [
+        {
+          model: Location,
+          attributes: ["location"],
+        },
+      ],
+    });
+    const user = userData.get({ plain: true });
+
+    return res.render("post", { 
+      user,
+      // user_id: req.session.user_id,
+      // logged_in: req.session.logged_in,
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;

@@ -1,4 +1,5 @@
 <div class="row mt-5 mx-auto">
+
     <div class="col-12 col-md-3 d-flex flex-column align-items-center">
         {{!-- <img src="assets/profile-pic-placeholder.png" width="300"> --}}
         <h1>Dashboard </h1>
@@ -6,17 +7,30 @@
         <p>{{user.location.location}}</p>
         <p></p>
     </div>
+
     <div class="col-6 col-md-4">
-        <h4>Items On Offer Right Now:</h4>
-        {{#each unclaimed as |item| }}
-        <p>{{item.title}}</p> {{!--Not sure what to put here--}}
+        <h3>Items On Offer Right Now:</h3>
+
+        {{#each unclaimed as |item| }}  
+            <a href="/item/{{item.id}}">
+                <h4>{{item.title}}</h4> 
+            </a>
+            <p>{{item.description}}</p>
         {{/each}}
     </div>
+
     <div class="col-6 col-md-4">
-        <h4>Items Claimed:</h4>
-         <h6><em>ready for pickup</em></h6>
+        <h3>Items Claimed:</h3>
+        <h6><em>ready for pickup</em></h6>
+
         {{#each claimed as |item|}}
-        <p>{{item.title}}</p>
+            <a href="/item/{{item.id}}">
+                <h4>{{item.title}}</h4>
+            </a>
+            <p>{{item.description}}</p>
         {{/each}}
     </div>
+
+    <a href="/dashboard/newitem"><button>POST A NEW ITEM</button></a>
+
 </div>
