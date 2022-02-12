@@ -1,20 +1,22 @@
 <div class="row mt-5 mx-auto">
     <div class="col-12 col-md-3 d-flex flex-column align-items-center">
-        <img src="assets/profile-pic-placeholder.png" width="300">
-        <h3>{{user.name}}</h3>
-        <p>{{user.location}}</p>
-        <p>{{user.}}</p>
+        {{!-- <img src="assets/profile-pic-placeholder.png" width="300"> --}}
+        <h1>Dashboard </h1>
+        <h2>{{user.name}} </h2>
+        <p>{{user.location.location}}</p>
+        <p></p>
     </div>
     <div class="col-6 col-md-4">
-        <h4>Items Offered</h4>
-        {{#each}}
-        <p>{{user.items_offered}}</p> {{!--Not sure what to put here--}}
+        <h4>Items On Offer Right Now:</h4>
+        {{#each unclaimed as |item| }}
+        <p>{{item.title}}</p> {{!--Not sure what to put here--}}
         {{/each}}
     </div>
     <div class="col-6 col-md-4">
-        <h4>Items Claimed</h4>
-        {{#each}}
-        <p>{{user.items_claimed}}</p>
+        <h4>Items Claimed:</h4>
+         <h6><em>ready for pickup</em></h6>
+        {{#each claimed as |item|}}
+        <p>{{item.title}}</p>
         {{/each}}
     </div>
 </div>
