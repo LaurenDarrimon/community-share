@@ -1,18 +1,14 @@
 const {Location} = require('../models');
-const { Item } = require ('../models')
 
 const locationData = [
     {
-        location: 'San Francisco',
-        item_id: 1
+        location: 'San Francisco'
     },
     {
-        location: 'Berkeley',
-        item_id: 2
+        location: 'Berkeley'
     },
     {
-        location: 'Fremont',
-        item_id: 3
+        location: 'Fremont'
     },
 
 ];

@@ -1,14 +1,14 @@
 const router = require("express").Router();
 const { Location, User, Item, Comment } = require("../models");
-//const withAuth = require('../../utils/auth');
+const withAuth = require('../utils/auth');
 
 //show all items posted by user /dashboard
-router.get("/:id", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const unclaimedItemData = await Item.findAll({
       where: {
-        user_id: req.params.id,
-        claimed:true,
+        user_id: req.session.user_id,
+        claimed: true,
       },
       include: [
         {
@@ -30,8 +30,8 @@ router.get("/:id", async (req, res) => {
 
     const claimedData = await Item.findAll({
       where: {
-        user_id: req.params.id,
-        claimed:false,
+        user_id: req.session.user_id,
+        claimed: false,
       },
       include: [
         {
@@ -62,9 +62,12 @@ router.get("/:id", async (req, res) => {
     });
     const user = userData.get({ plain: true });
 
-  
 
-    res.render("dashboard", { unclaimed, claimed, user });
+
+    res.render("dashboard", {
+      user_id: req.session.user_id,
+      logged_in: req.session.logged_in, unclaimed, claimed, user
+    });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -73,7 +76,7 @@ router.get("/:id", async (req, res) => {
 //show the form to make a new post /dashboard/post
 //later add withAuth middleware
 router.get("/:id/newitem/", async (req, res) => {
-  try{
+  try {
     //USER get data
     const userData = await User.findByPk(req.params.id, {
       include: [
@@ -85,10 +88,10 @@ router.get("/:id/newitem/", async (req, res) => {
     });
     const user = userData.get({ plain: true });
 
-    return res.render("post", { 
+    return res.render("post", {
       user,
-      // user_id: req.session.user_id,
-      // logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+      logged_in: req.session.logged_in,
     });
 
   } catch (err) {
