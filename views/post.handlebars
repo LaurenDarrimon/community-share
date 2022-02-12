@@ -1,16 +1,26 @@
 <h2 class="col-12"> NEW ITEM POSTING</h2>
-<h3 class="col-12" id="user">by {{user.name}}</h3>
+<h3 class="col-12" id="user" data-user="{{user.id}}">by {{user.name}}</h3>
+<h4 class="col-12" id="user-location" data-location="{{user.location_id}}">
+  location:
+  {{user.location.location}}
+</h4>
 
 <form class="col-12 form new-item-form">
   <div class="form-group">
     <label for="titleInput">Item Title</label>
-    <input class="form-control" id="titleInput" placeholder="Item Title">
+    <input class="form-control" id="titleInput" placeholder="Item Title" />
   </div>
 
   <div class="form-group">
-    <label for="itemDescription">Body of Article</label>
+    <label for="itemDescription">Item Description</label>
     <textarea class="form-control" id="itemDescription" rows="3"></textarea>
   </div>
+
+ <div class="form-group">
+    <label for="contactInfo">Contact Email</label>
+    <input class="form-control" id="contactInfo" placeholder="email@email.com" />
+  </div>
+
 
   <div class="form-group">
     <button class="btn btn-primary" type="submit">
