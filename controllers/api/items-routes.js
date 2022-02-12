@@ -2,19 +2,22 @@ const router = require('express').Router();
 const {Item} = require('../../Models/index');
 
 
-//CREATE NEW item 
+//CREATE NEW ITEM route: api/items/location:id
 router.post('/location/:id', async (req, res) => {
     try {
+
+        console.log(req.body);
         const newItem = await Item.create({
             title: req.body.title,
             description: req.body.description,
-            user_id: req.session.user_id,
+            user_id: req.body.user_id,  
+            contact_info: req.body.contact_info,
             location_id: req.params.id,
 
         });
-        console.log(newPost);
+        console.log(newItem);
 
-        res.json(newPost);
+        res.json(newItem);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
