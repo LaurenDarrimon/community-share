@@ -3,12 +3,14 @@ const { Location, User, Item, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
 //show all items posted by user /dashboard
-router.get("/", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
+    console.log("user id:");
+    console.log(req.params.id);
     const unclaimedItemData = await Item.findAll({
       where: {
-        user_id: req.session.user_id,
-        claimed: true,
+        user_id: req.params.id,
+        claimed: false,
       },
       include: [
         {
@@ -26,12 +28,14 @@ router.get("/", async (req, res) => {
       ],
     });
     const unclaimed = unclaimedItemData.map((item) => item.get({ plain: true }));
-
+    
+    console.log("unclaimed");
+    console.log(unclaimed);
 
     const claimedData = await Item.findAll({
       where: {
-        user_id: req.session.user_id,
-        claimed: false,
+        user_id: req.params.id,
+        claimed: true,
       },
       include: [
         {
@@ -51,22 +55,21 @@ router.get("/", async (req, res) => {
 
     const claimed = claimedData.map((item) => item.get({ plain: true }));
 
+    console.log("claimed");
+    console.log(claimed);
+
     //USER get data
-    const userData = await User.findByPk(req.params.id, {
-      include: [
-        {
-          model: Location,
-          attributes: ["location"],
-        },
-      ],
-    });
+    const userData = await User.findByPk(req.params.id);
     const user = userData.get({ plain: true });
 
+    console.log("user");
+    console.log(user);
 
 
-    res.render("dashboard", {
-      user_id: req.session.user_id,
-      logged_in: req.session.logged_in, unclaimed, claimed, user
+    res.render('dashboard', {
+      user_id: req.params.id,
+      logged_in: req.session.logged_in, 
+      unclaimed, claimed, user
     });
   } catch (err) {
     res.status(400).json(err);

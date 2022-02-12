@@ -8,29 +8,35 @@
         <p></p>
     </div>
 
-    <div class="col-6 col-md-4">
-        <h3>Items On Offer Right Now:</h3>
 
-        {{#each unclaimed as |item| }}  
-            <a href="/item/{{item.id}}">
-                <h4>{{item.title}}</h4> 
-            </a>
-            <p>{{item.description}}</p>
-        {{/each}}
-    </div>
+    {{#if unclaimed}}
+        <div class="col-6 col-md-4">
+            <h3>Items On Offer Right Now:</h3>
 
-    <div class="col-6 col-md-4">
-        <h3>Items Claimed:</h3>
-        <h6><em>ready for pickup</em></h6>
+            {{#each unclaimed as |item| }}  
+                <a href="/item/{{item.id}}">
+                    <h4>{{item.title}}</h4> 
+                </a>
+                <p>{{item.description}}</p>
+            {{/each}}
+        </div>
+    {{/if}}
 
-        {{#each claimed as |item|}}
-            <a href="/item/{{item.id}}">
-                <h4>{{item.title}}</h4>
-            </a>
-            <p>{{item.description}}</p>
-        {{/each}}
-    </div>
 
-    <a href="/dashboard/{{id}}/newitem"><button>POST A NEW ITEM</button></a>
+    {{#if claimed}}
+        <div class="col-6 col-md-4">
+            <h3>Items Claimed:</h3>
+            <h6><em>ready for pickup</em></h6>
+
+            {{#each claimed as |item|}}
+                <a href="/item/{{item.id}}">
+                    <h4>{{item.title}}</h4>
+                </a>
+                <p>{{item.description}}</p>
+            {{/each}}
+        </div>
+    {{/if}}
+
+    <a href="/dashboard/{{user_id}}/newitem"><button>POST A NEW ITEM</button></a>
 
 </div>
