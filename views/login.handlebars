@@ -1,34 +1,54 @@
 <div class="row d-flex justify-content-center mt-5">
-            <div class="col-6 col-md-3 mx-5">
-                <h3> Log In</h3>
-                <form id="login-form">
-                    <div class="form-group">
-                      <label for="email">Email address</label>
-                      <input type="email" class="form-control" id="email-login" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="password-login" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-3 custom-button">Submit</button>
-                  </form>
-            </div>
-            <div class="col-6 col-md-3 mx-5">
-                <h3>Sign Up</h3>
-                <form id="signup-form">
-                    <div class="form-group">
-                      <label for="email">Email address</label>
-                      <input type="email" class="form-control" id="email-signup" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="username" class="form-control" id="username-signup" placeholder="Username">
-                      </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="password-signup" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-3 custom-button">Submit</button>
-                  </form>
-            </div>
-        </div>
+  <div class="col-6 col-md-3 mx-5">
+    <h3> Log In</h3>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email address</label>        
+        <input type="email" class="form-control" id="email-login" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password-login" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary mt-3 custom-button">Submit</button>
+    </form>
+  </div>
+
+  <div class="col-6 col-md-3 mx-5">
+    <h3>Sign Up</h3>
+    <form id="signup-form">
+      <div class="form-group">
+        <label for="email-signup">Email address</label>
+        <input type="email" class="form-control" id="email-signup" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="username-signup">Username</label>
+        <input type="username" class="form-control" id="username-signup" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <label for="password-signup">Password</label>
+        <input type="password" class="form-control" id="password-signup" placeholder="Password">
+      </div>
+
+      {{!-- <p>Please select your Location:</p>
+      <div>
+
+        <input type="radio" id="locationChoice1" name="location" value="1">
+        <label for="locationChoice1">San Francisco</label>
+
+        <input type="radio" id="locationChoice2" name="location" value="2">
+        <label for="locationChoice2">Berkeley</label>
+
+        <input type="radio" id="locationChoice3" name="location" value="3">
+        <label for="locationChoice3">Fremont</label>
+      </div> --}}
+      {{!-- <div>
+        Locations: <select name="location" id="location">
+          <option value="" selected="selected">Please select a Location</option>
+        </select>
+      </div> --}}
+      <button type="submit" class="btn btn-primary mt-3 custom-button">Submit</button>
+    </form>
+  </div>
+</div>
+<script src="/js/login.js"></script>

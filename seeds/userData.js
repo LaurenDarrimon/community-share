@@ -4,32 +4,38 @@ const userData = [
     {
         name: "dougfunnie",
         password: "ilovepatty",
-        location_id: 1,
+        email: "Boo@test.com",
+        // location_id: 1,
     },
     {
         name: "raskolnikov",
         password: "siberiasucks",
-        location_id: 1,
+        email: "Far@test.com",
+        // location_id: 1,
     },
     {
         name: "wrathofsanity",
         password: "315xvx",
-        location_id: 2,
+        email: "Foo@test.com",
+        // location_id: 2,
     },
     {
         name: "glenndanzig",
         password: "twistofcain666",
-        location_id: 2,
+        email: "Bar@test.com",
+        // location_id: 2,
     },
     {
         name: "billymadison",
         password: "iloveveronicavaughn",
-        location_id: 3,
+        email: "BooFar@test.com",
+        // location_id: 3,
     },
     {
         name: "esponguebob",
         password: "bikinibottom99",
-        location_id: 3,
+        email: "Foobar@test.com",
+        // location_id: 3,
     },
 ];
 

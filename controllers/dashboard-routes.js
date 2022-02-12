@@ -3,7 +3,7 @@ const { Location, User, Item, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
 //show all items posted by user /dashboard
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const unclaimedItemData = await Item.findAll({
       where: {
