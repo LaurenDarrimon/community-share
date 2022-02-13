@@ -30,13 +30,13 @@ User.init(
           allowNull: false,
           unique: true,
         },
-        // location_id: {
-        //   type: DataTypes.INTEGER,
-        //   references: {
-        //     model: Location,
-        //     key: 'id'
-        //   }
-        // }
+        location_id: {
+          type: DataTypes.INTEGER,
+          references: {
+            model: Location,
+            key: 'id'
+          }
+        }
     },
   {
     hooks: {

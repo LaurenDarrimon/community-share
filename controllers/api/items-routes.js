@@ -10,7 +10,7 @@ router.post('/location/:id', async (req, res) => {
         const newItem = await Item.create({
             title: req.body.title,
             description: req.body.description,
-            user_id: req.body.user_id,  
+            user_id: req.session.user_id,  
             contact_info: req.body.contact_info,
             location_id: req.params.id,
 
