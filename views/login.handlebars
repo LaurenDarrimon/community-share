@@ -3,7 +3,7 @@
     <h3> Log In</h3>
     <form id="login-form">
       <div class="form-group">
-        <label for="email">Email address</label>        
+        <label for="email">Email address</label>
         <input type="email" class="form-control" id="email-login" placeholder="Enter email">
       </div>
       <div class="form-group">
@@ -30,23 +30,23 @@
         <input type="password" class="form-control" id="password-signup" placeholder="Password">
       </div>
 
-      {{!-- <p>Please select your Location:</p>
-      <div>
+      <p>Please select your Location:</p>
+      {{!-- <div>
 
         <input type="radio" id="locationChoice1" name="location" value="1">
         <label for="locationChoice1">San Francisco</label>
-
+        <br>
         <input type="radio" id="locationChoice2" name="location" value="2">
         <label for="locationChoice2">Berkeley</label>
-
+        <br>
         <input type="radio" id="locationChoice3" name="location" value="3">
         <label for="locationChoice3">Fremont</label>
       </div> --}}
-      {{!-- <div>
-        Locations: <select name="location" id="location">
-          <option value="" selected="selected">Please select a Location</option>
-        </select>
-      </div> --}}
+
+      <input type="radio" name="location" id="San Francisco" value="1">San Francisco<br>
+      <input type="radio" name="location" id="Berkeley" value="2">Berkeley<br>
+      <input type="radio" name="location" id="rainy" value="3">Fremont<br>
+
       <button type="submit" class="btn btn-primary mt-3 custom-button">Submit</button>
     </form>
   </div>

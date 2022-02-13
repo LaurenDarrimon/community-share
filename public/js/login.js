@@ -33,13 +33,25 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
+  let selection;
 
-  console.log(username, password, email);
+  let choice = document.getElementsByName('location');
+  console.log('choice: ',choice);
+  for ( let i = 0; i < choice.length; i++) {
+    if ( choice[i].checked) {
+      selection = choice[i].value;
+      break;
+    }
+  }
+
+  console.log(selection);
+
+  console.log(username, password, email, selection);
 
   if (username && email && password) {
     const response = await fetch('/api/users/signup', {
       method: 'POST',
-      body: JSON.stringify({ username, email, password}),
+      body: JSON.stringify({ username, email, password, selection}),
       headers: { 'Content-Type': 'application/json' },
     });
     console.log('response: ',response);
