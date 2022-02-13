@@ -10,3 +10,29 @@
         <button>Claim</button>
     </div>
 </div>
+
+
+{{#each item.comment as |comment|}}
+    <h2>{{content}}</h2>
+{{/each}}
+
+
+{{#if logged_in}}
+<div class="row mx-5">
+    <div class="col-12 col-md-12">
+        <form id="item-comment-form" data-id="{{item.id}}">
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea class="form-control" id="item-comment-input" rows="3"></textarea>
+          </div>
+           <div class="form-group">
+            <button class="btn btn-primary" type="submit">
+            Comment
+            </button>
+        </div>
+        </form>
+    </div>
+</div>
+{{/if}}
+
+<script src="/js/comment.js"></script>
