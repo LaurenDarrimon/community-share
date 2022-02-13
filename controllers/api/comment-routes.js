@@ -7,6 +7,7 @@ router.post('/items/comment/:id', async (req, res) => {
             content: req.body.content,
             user_id: req.session.user_id,
             post_id: req.params.id,
+            item_id: req.body.item_id
 
         });
         console.log(newComment);
