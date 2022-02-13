@@ -31,13 +31,13 @@ Item.belongsTo(Location, {
     foreignKey: 'location_id'
 })
 
-// Location.hasMany(User, {
-//     foreignKey: 'location_id'
-// });
+Location.hasMany(User, {
+    foreignKey: 'location_id'
+});
 
-// User.belongsTo(Location, {
-//     foreignKey: 'location_id'
-// });
+User.belongsTo(Location, {
+    foreignKey: 'location_id'
+});
 
 
 

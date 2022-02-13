@@ -3,13 +3,13 @@ const { Location, User, Item, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
 //show all items posted by user /dashboard
-router.get("/:id", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     console.log("user id:");
-    console.log(req.params.id);
+    console.log(req.session.user_id);
     const unclaimedItemData = await Item.findAll({
       where: {
-        user_id: req.params.id,
+        user_id: req.session.user_id,
         claimed: false,
       },
       include: [
@@ -34,7 +34,7 @@ router.get("/:id", async (req, res) => {
 
     const claimedData = await Item.findAll({
       where: {
-        user_id: req.params.id,
+        user_id: req.session.user_id,
         claimed: true,
       },
       include: [
@@ -59,7 +59,9 @@ router.get("/:id", async (req, res) => {
     console.log(claimed);
 
     //USER get data
-    const userData = await User.findByPk(req.params.id);
+    const userData = await User.findByPk(req.session.user_id, {
+      include: [{ all: true, nested: true }],
+    });
     const user = userData.get({ plain: true });
 
     console.log("user");
@@ -67,7 +69,7 @@ router.get("/:id", async (req, res) => {
 
 
     res.render('dashboard', {
-      user_id: req.params.id,
+      user_id: req.session.user_id,
       logged_in: req.session.logged_in, 
       unclaimed, claimed, user
     });
