@@ -36,11 +36,25 @@ router.put('/:id/claim', async (req, res) => {
       console.log(req.params.id);
       console.log("__________________________________");
 
-      const itemData = await Item.update(req.body, {
-        where: {
-          id: req.params.id,
-        },
-      });
+      // const itemData = await Item.update(req.body, {
+      //   where: {
+      //     id: req.params.id,
+      //   },
+      // });
+      // await itemData.save();
+
+      const itemData = await Item.findByPk(req.params.id);
+
+      console.log('itemData: ', itemData);
+
+      itemData.set({
+        claimed: true,
+        user_id: req.session.user_id,
+      })
+      await itemData.save();
+
+
+
       if (!itemData[0]) {
         res.status(404).json({ message: 'No existing item with this id was found!' });
         return;
