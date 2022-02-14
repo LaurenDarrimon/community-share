@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Item} = require('../../models/Item');
+const {Item} = require('../../models');
 
 
 //CREATE NEW ITEM route: api/items/location:id
@@ -29,12 +29,12 @@ router.post('/location/:id', async (req, res) => {
 router.put('/:id/claim', async (req, res) => {
     // update an item by its `id` value
     try {
-      console.log("__________________________________");
-      console.log('req.body');
-      console.log(req.body);
-      console.log("req.params.id");
-      console.log(req.params.id);
-      console.log("__________________________________");
+      // console.log("__________________________________");
+      // console.log('req.body');
+      // console.log(req.body);
+      // console.log("req.params.id");
+      // console.log(req.params.id);
+      // console.log("__________________________________");
 
       // const itemData = await Item.update(req.body, {
       //   where: {
@@ -52,8 +52,6 @@ router.put('/:id/claim', async (req, res) => {
         user_id: req.session.user_id,
       })
       await itemData.save();
-
-
 
       if (!itemData[0]) {
         res.status(404).json({ message: 'No existing item with this id was found!' });
