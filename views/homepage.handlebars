@@ -1,15 +1,18 @@
 {{!-- Welcome and description --}}
 <div class="row">
     <div class="col-12 col-md-4 mt-5 custom-welcome">
-        <h1>Welcome
-            <p id="welcome-text">Elit sit incididunt cillum enim ad sint eu ullamco esse quis mollit. In cupidatat labore dolor sunt nulla ipsum aute. Cupidatat Lorem nisi commodo ea est consequat duis occaecat sint sint fugiat aliqua esse.
-                Ex deserunt ullamco ea mollit pariatur ex ea eiusmod laboris. Id enim aliqua exercitation sunt incididunt anim nulla laborum sunt. Proident laboris fugiat enim ad labore nulla nostrud tempor. Incididunt dolore esse esse incididunt consequat elit aliquip et cillum est incididunt adipisicing ex ut. Exercitation enim laboris sunt aliquip laborum. Cupidatat irure anim proident ea veniam ipsum incididunt nulla id laboris pariatur.
+        <p class="display-6"><em>Welcome to the </em></p>
+        <h1 class="display-4"> Neighborgood!</h1>
+            <p id="welcome-text"> Community based sharing app where neighbors can post gently used items, comment, 
+                ask questions, and claim items from other members of their community. 
             </p>
-        </h1>
+            <p>Neighborgood is currently in these cities. Check back soon to see if we've expanded into your neighborhood! </p>
+        
     </div>
 
     {{!-- List of locations --}}
     <div class="col-12 col-md-8 mt-5 d-flex flex-wrap justify-content-around custom-locations align-items-start">
+        <h2> Locations: </h2>
         {{#each locations as |location|}}
             {{> location-details }}
         {{/each}}
