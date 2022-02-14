@@ -56,7 +56,7 @@ const signupFormHandler = async (event) => {
     });
     console.log('response: ',response);
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace(`/location/${selection}`);
     } else {
       console.error("Failed to create new account. Please try again")
     }
