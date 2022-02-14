@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const {Item} = require('../../models');
-
+const cloudinary = require('cloudinary').v2;
+// var cl = new cloudinary.Cloudinary({cloud_name: "dejncb9xf", 
+// // secure: true
+// });
 
 //CREATE NEW ITEM route: api/items/location:id
 router.post('/location/:id', async (req, res) => {
