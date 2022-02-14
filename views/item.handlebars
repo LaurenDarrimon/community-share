@@ -7,13 +7,22 @@
     </div> --}}
     <div class="col-12 col-md-9">
         <p>{{item.description}}</p>
-        <button>Claim</button>
+
+        {{#if item.claimed}}
+        <button class="btn btn-primary" id="claim-button" data-id="{{item.id}}">
+            Claim
+        </button>
+        {{else}}
+        <p><em>This item has already been claimed!</em></p>
+        {{/if}}
+
+
     </div>
 </div>
 
 <br>
 
-<h3>Comments by Other Users:</h3>
+<h3>Questions and Comments:</h3>
 
 {{#each item.comments as |comment| }}
     <p><em>posted by {{user.name}}</em></p>
@@ -40,3 +49,7 @@
 {{/if}}
 
 <script src="/js/comment.js"></script>
+
+{{#if item.claimed}}
+<script src="/js/claim.js"></script>
+{{/if}}

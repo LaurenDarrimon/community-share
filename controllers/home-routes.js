@@ -52,7 +52,7 @@ router.get('/location/:id', async (req, res) => {
     const items = itemData.map((item) => item.get({ plain: true }));
     console.log(items);
 
-    
+
     // Pass data to handlbars to render 
     res.render('location', { items, location });
   } catch (err) {
@@ -73,11 +73,6 @@ router.get('/item/:id', async (req, res) => {
     console.log('item:');
     console.log(item);
     console.log("__________________________________");
-
-
-    console.log("__________________________________");
-    
-
 
     res.render('item', { 
       item,

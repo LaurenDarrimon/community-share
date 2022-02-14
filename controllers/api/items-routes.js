@@ -24,6 +24,40 @@ router.post('/location/:id', async (req, res) => {
     }
 });
 
+
+//PUT route to update item by id api/items/:id/claim
+router.put('/:id/claim', async (req, res) => {
+    // update an item by its `id` value
+    try {
+      console.log("__________________________________");
+      console.log('req.body');
+      console.log(req.body);
+      console.log("req.params.id");
+      console.log(req.params.id);
+      console.log("__________________________________");
+
+      const itemData = await Item.update(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
+      if (!itemData[0]) {
+        res.status(404).json({ message: 'No existing item with this id was found!' });
+        return;
+      }
+
+      console.log("__________________________________");
+      console.log('itemdata:');
+      console.log(itemData);
+      console.log("__________________________________");
+
+
+      res.status(200).json(itemData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
 router.delete('/delete/:id', async (req, res) => {
     const item = await Item.destroy({
         where: {
