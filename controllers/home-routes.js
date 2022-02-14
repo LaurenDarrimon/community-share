@@ -54,7 +54,7 @@ router.get('/location/:id', async (req, res) => {
 
 
     // Pass data to handlbars to render 
-    res.render('location', { items, location });
+    res.render('location', { items, location, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
