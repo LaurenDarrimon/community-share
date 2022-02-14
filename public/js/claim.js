@@ -5,12 +5,12 @@ const submitClaim = async (event) => {
     console.log('item id', item_id);
     const claimedItem = {
         id: item_id,
-        claimed: true,
-        title: "test title",
-        description: "test title",
-        contact_info: "email@blah.com",
-        location_id: 1,
-        user_id: 1
+        // claimed: true,
+        // title: "test title",
+        // description: "test title",
+        // contact_info: "email@blah.com",
+        // location_id: 1,
+        // user_id: 1
     };
 
     console.log("claimedItem");

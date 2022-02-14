@@ -48,7 +48,7 @@ const signupFormHandler = async (event) => {
 
   console.log(username, password, email, selection);
 
-  if (username && email && password) {
+  if (username && email && password && selection) {
     const response = await fetch('/api/users/signup', {
       method: 'POST',
       body: JSON.stringify({ username, email, password, selection}),
@@ -56,7 +56,7 @@ const signupFormHandler = async (event) => {
     });
     console.log('response: ',response);
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace(`/location/${selection}`);
     } else {
       console.error("Failed to create new account. Please try again")
     }
