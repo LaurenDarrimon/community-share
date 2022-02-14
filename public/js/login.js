@@ -15,11 +15,13 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
+
       // If successful, redirect the browser to the location page
       // document.location.replace(`/location/${user.location_id}`);
       document.location.replace(`/`);
     } else {
-      console.error("Incorrect email or password")
+      console.error("Incorrect email or password");
+      alert("Incorrect email or password");
     }
   }
 };
