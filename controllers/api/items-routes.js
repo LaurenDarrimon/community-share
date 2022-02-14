@@ -49,6 +49,7 @@ router.put('/:id/claim', async (req, res) => {
 
       itemData.set({
         claimed: true,
+        user_id: req.session.user_id,
       })
       await itemData.save();
 
