@@ -11,9 +11,13 @@
     </div>
 </div>
 
+<br>
 
-{{#each item.comment as |comment|}}
-    <h2>{{content}}</h2>
+<h3>Comments by Other Users:</h3>
+
+{{#each item.comments as |comment| }}
+    <p><em>posted by {{user.name}}</em></p>
+    {{>comments}}
 {{/each}}
 
 

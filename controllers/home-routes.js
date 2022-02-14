@@ -51,6 +51,8 @@ router.get('/location/:id', async (req, res) => {
     //map item data into new array that can be read by handlebars
     const items = itemData.map((item) => item.get({ plain: true }));
     console.log(items);
+
+    
     // Pass data to handlbars to render 
     res.render('location', { items, location });
   } catch (err) {
@@ -62,24 +64,21 @@ router.get('/location/:id', async (req, res) => {
 router.get('/item/:id', async (req, res) => {
   try {
     const itemData = await Item.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-        {
-          model: Location,
-          attributes: ['location'],
-        },
-        {
-          model: Comment,
-          attributes: ['content', 'user_id'],
-        },
-      ],
+      include: [{ all: true, nested: true }],
     });
 
     const item = itemData.get({ plain: true });
-    console.log('item' + item)
+
+    console.log("__________________________________");
+    console.log('item:');
+    console.log(item);
+    console.log("__________________________________");
+
+
+    console.log("__________________________________");
+    
+
+
     res.render('item', { 
       item,
       user_id: req.session.user_id,
