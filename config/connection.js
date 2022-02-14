@@ -3,10 +3,10 @@ require('dotenv').config();
 
 let sequelize;
 
-//this JAWS db environment URL is needed for Heroku deployment
-// if (process.env.JAWSDB_URL) {
-// sequelize = new Sequelize(process.env.JAWSDB_URL);
-// } else {
+// this JAWS db environment URL is needed for Heroku deployment
+if (process.env.JAWSDB_URL) {
+sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else {
 sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
@@ -17,7 +17,7 @@ sequelize = new Sequelize(
       port: 3306
     }
   );
-// }
+}
 
 module.exports = sequelize;
 
