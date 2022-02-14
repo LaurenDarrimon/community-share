@@ -12,9 +12,10 @@
         <button class="btn btn-primary" id="claim-button" data-id="{{item.id}}">
             Claim
         </button>
-        {{else}}
-        <p><em>This item has already been claimed!</em></p>
         {{/unless}}
+        {{#if item.claimed}}
+        <p><em>This item has already been claimed!</em></p>
+        {{/if}}
 
 
     </div>
@@ -50,6 +51,6 @@
 
 <script src="/js/comment.js"></script>
 
-{{#if item.claimed}}
+{{#unless item.claimed}}
 <script src="/js/claim.js"></script>
-{{/if}}
+{{/unless}}
