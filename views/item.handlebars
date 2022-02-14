@@ -11,9 +11,11 @@
         <p>{{item.description}}</p>
 
         {{#unless item.claimed}}
+        {{#if logged_in}}
         <button class="btn btn-primary" id="claim-button" data-id="{{item.id}}">
             Claim
         </button>
+        {{/if}}
         {{/unless}}
         {{#if item.claimed}}
         <p><em>This item has already been claimed!</em></p>
