@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Item} = require('../../Models/index');
+const {Item} = require('../../models/Item');
 
 
 //CREATE NEW ITEM route: api/items/location:id
