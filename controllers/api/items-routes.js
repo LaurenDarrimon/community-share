@@ -6,6 +6,8 @@ const cloudinary = require('cloudinary').v2;
 // });
 
 //CREATE NEW ITEM route: api/items/location:id
+
+
 router.post('/location/:id', async (req, res) => {
     try {
 
@@ -16,6 +18,7 @@ router.post('/location/:id', async (req, res) => {
             user_id: req.session.user_id,  
             contact_info: req.body.contact_info,
             location_id: req.params.id,
+            photo_url: req.body.photo_url,
 
         });
         console.log(newItem);
