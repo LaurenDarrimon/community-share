@@ -1,43 +1,52 @@
-<div class="row mt-5 mx-auto">
+<div class="row mx-auto">
 
-    <div class="col-12 col-md-3 d-flex flex-column align-items-center">
-        {{!-- <img src="assets/profile-pic-placeholder.png" width="300"> --}}
-        <h1>Dashboard </h1>
-        <h2>{{user.name}} </h2>
-        <p>{{user.location.location}}</p>
-        <p></p>
+    <div class="col-12 col-md-3 d-flex flex-column align-items-center dashboard-sidebar">
+        <div class="mt-5">
+            <img src="assets/profile-pic-placeholder.png" width="150">
+        </div>
+        <div class="mt-2">
+            <h1>Dashboard </h1>
+            <h2>{{user.name}} </h2>
+            <p>{{user.location.location}}</p>
+            <a href="/dashboard/{{user_id}}/newitem"><button id="post-button">POST A NEW ITEM</button></a>
+        </div>
     </div>
-
-
-    {{#if unclaimed}}
-        <div class="col-6 col-md-4">
-            <h3>Items On Offer Right Now:</h3>
-
-            {{#each unclaimed as |item| }}  
-                <a href="/item/{{item.id}}">
+  
+    <div class="col-6 col-md-4 mt-3">
+        <div class="d-flex justify-content-center">
+            <h3>Items On Offer</h3>
+        </div>
+            {{#if unclaimed}}
+        {{#each unclaimed as |item| }} 
+        <div class="card">
+            <div class="card-body">
+                 <a href="/item/{{item.id}}">
                     <h4>{{item.title}}</h4> 
                 </a>
                 <p>{{item.description}}</p>
-            {{/each}}
+            </div>
         </div>
+        {{/each}}
     {{/if}}
 
-
-    {{#if claimed}}
-        <div class="col-6 col-md-4">
-            <h3>Items Claimed:</h3>
-            <h6><em>ready for pickup</em></h6>
-
-            {{#each claimed as |item|}}
-                <a href="/item/{{item.id}}">
-                    <h4>{{item.title}}</h4>
-                </a>
-                <p>{{item.description}}</p>
-                <p>Contact: {{item.contact_info}}</p>
-            {{/each}}
+    </div>
+    <div class="col-6 col-md-4 mt-3">
+         <div class="d-flex justify-content-center">
+            <h3>Items Claimed</h3>
+        </div>
+           {{#if claimed}}
+        <div class="card .bg-white">
+            <div class="card-body">
+                 {{#each claimed as |item|}}
+                    <a href="/item/{{item.id}}">
+                        <h4>{{item.title}}</h4>
+                    </a>
+                    <p>{{item.description}}</p>
+                    <p>Contact: {{item.contact_info}}</p>
+                {{/each}}
+            </div>
         </div>
     {{/if}}
+    </div>
 
-    <a href="/dashboard/{{user_id}}/newitem"><button>POST A NEW ITEM</button></a>
-
-</div>
+    
