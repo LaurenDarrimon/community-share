@@ -1,19 +1,13 @@
-<div class="row">
-        <div class="col-12 md-12 mt-3">
-            <h1>{{location.location}}</h1>
-        </div>
+<div class="row d-flex gy-3 justify-content-center">
+    <div class="col-12 col-md-9 mt-5">
+        <h1>{{location.location}}</h1>
     </div>
     {{#each items as |item|}}
-    <div class="row mt-2">
-        {{!-- <div class="col-12 col-md-2">
-            <img src="{{item.image}}" width="200">
-        </div> --}}
-        <div class="col-12 col-md-7 d-flex flex-column justify-content-center">
-            <a href="/item/{{item.id}}"><h3>{{item.title}}</h3></a>
-            <p>{{item.description}}</p>
+        <div class="card .bg-white col-12 col-md-9">
+            <div class="card-body">
+                <a href="/item/{{item.id}}"><h3>{{item.title}}</h3></a>
+                <p>{{item.description}}</p>
+            </div>
         </div>
-        {{!-- <div class="col-12 col-md-3 d-flex align-items-center">
-            <button>Claim</button>
-        </div> --}}
     {{/each}}
 </div>

@@ -1,6 +1,6 @@
 {{!-- Welcome and description --}}
-<div class="row">
-    <div class="col-12 col-md-4 mt-5 custom-welcome">
+<div class="row mx-auto d-flex justify-content-center">
+    <div class="col-12 col-md-4 mt-5 mx-4 custom-welcome">
         <p class="display-6"><em>Welcome to the </em></p>
         <h1 class="display-4"> Neighborgood!</h1>
             <p id="welcome-text"> Community based sharing app where neighbors can post gently used items, comment, 
@@ -11,12 +11,13 @@
     </div>
 
     {{!-- List of locations --}}
-    <div class="col-12 col-md-8 mt-5 d-flex flex-wrap justify-content-around custom-locations align-items-start">
-        <h2> Locations: </h2>
+    <div class="col-12 col-md-3 mt-5 d-flex flex-column">
+        {{!-- <h2> Locations: </h2> --}}
         {{#each locations as |location|}}
             {{> location-details }}
         {{/each}}
     </div>
 </div>
+
 
         
