@@ -1,4 +1,4 @@
-C# Neighborgood Community Sharing Application
+# Neighborgood Community Sharing Application
 ## David Chao, Lauren Duker & Scott Everett
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=appveyor)](https://opensource.org/licenses/MIT) ![Language Badges](https://img.shields.io/github/languages/top/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor) ![Commits Badge](https://img.shields.io/github/last-commit/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor) ![Repo Size](https://img.shields.io/github/repo-size/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor) ![Repo Issues](https://img.shields.io/github/issues/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor)
     
