@@ -35,17 +35,18 @@
             <h3>Items Claimed</h3>
         </div>
            {{#if claimed}}
+           {{#each claimed as |item|}}
         <div class="card .bg-white">
             <div class="card-body">
-                 {{#each claimed as |item|}}
+                 
                     <a href="/item/{{item.id}}">
                         <h4>{{item.title}}</h4>
                     </a>
                     <p>{{item.description}}</p>
                     <p>Contact: {{item.contact_info}}</p>
-                {{/each}}
             </div>
         </div>
+        {{/each}}
     {{/if}}
     </div>
 

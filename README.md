@@ -1,5 +1,5 @@
 # Neighborgood Community Sharing Application
-## David Chao, Lauren Duker & Scott Everett
+## David Chou, Lauren Duker & Scott Everett
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=appveyor)](https://opensource.org/licenses/MIT) ![Language Badges](https://img.shields.io/github/languages/top/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor) ![Commits Badge](https://img.shields.io/github/last-commit/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor) ![Repo Size](https://img.shields.io/github/repo-size/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor) ![Repo Issues](https://img.shields.io/github/issues/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor)
     
 ### Description
@@ -51,6 +51,11 @@ To enable the server from the command line:
 npm start
 ~~~
 
+
+### Functionality
+![A gif demonstrating the functionality of the application](./public/assets/usage-gif.gif)
+
+
 ### Cloudinary 
 
 We used Cloudinary for cloud storage and retrieval of user posted item photos. 
@@ -81,12 +86,12 @@ var myWidget = cloudinary.createUploadWidget({
 
 ### Contributing 
 ✍️ 
-David Chao, Lauren Duker & Scott Everett are the authors of this application. 
+David Chou, Lauren Duker & Scott Everett are the authors of this application. 
 
 Find additional work here: 
 
 Lauren Duker's  [Github profile.](http://github.com/laurenDarrimon).
-David Chao's  [Github profile.](https://github.com/DazedChou).
+David Chou's  [Github profile.](https://github.com/DazedChou).
 & Scott Everett's [Github profile.](https://github.com/scottybuoy).
 
 Follow these guildines for contributing to this project: 
@@ -94,7 +99,7 @@ Follow these guildines for contributing to this project:
 
 ### Questions
 ❓💌
-Reach out to David Chao, Lauren Duker & Scott Everett at hello@laurenlalita.com if you have any questions. 
+Reach out to David Chou, Lauren Duker & Scott Everett at hello@laurenlalita.com if you have any questions. 
 
 ### License
 The license for this project is: [MIT](https://opensource.org/licenses/MIT)
