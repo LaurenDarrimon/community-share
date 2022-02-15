@@ -47,6 +47,8 @@ var myWidget = cloudinary.createUploadWidget({
     console.log('Done! Here is the image info: ', result.info);
     photoURL = result.info.url;
     console.log(photoURL);
+    document.getElementById('upload_widget').style.display="none";
+    document.getElementById('upload_message').style.display="block";
   };
 
 }
