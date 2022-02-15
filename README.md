@@ -1,4 +1,4 @@
-# Neighborgood Community Sharing Application
+C# Neighborgood Community Sharing Application
 ## David Chao, Lauren Duker & Scott Everett
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge&logo=appveyor)](https://opensource.org/licenses/MIT) ![Language Badges](https://img.shields.io/github/languages/top/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor) ![Commits Badge](https://img.shields.io/github/last-commit/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor) ![Repo Size](https://img.shields.io/github/repo-size/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor) ![Repo Issues](https://img.shields.io/github/issues/laurenDarrimon/community-share?style=for-the-badge&logo=appveyor)
     
@@ -10,6 +10,7 @@ Full-stack sharing and upcycling app where neighbors can post gently used items,
 * [Link](#link)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Cloudinary](#cloudinary)
 * [Contributing](#contributing)
 * [Questions](#questions)
 * [License](#license)
@@ -50,10 +51,37 @@ To enable the server from the command line:
 npm start
 ~~~
 
+### Cloudinary 
+
+We used Cloudinary for cloud storage and retrieval of user posted item photos. 
+
+Cloudinary Upload widget for logged in users to post photos when they post an item. 
+
+![cloudinary uplaod widget](public/assets/widget.gif)
+
+#### Code Snippet
+Client side JavaScript to call the upload widget and retrive unique image URL from the response object. 
+
+```
+var photoURL;
+
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: cloudName,
+    uploadPreset: uploadPresent,
+    }, (error, result) => {
+        if (!error && result && result.event === "success") {
+            const location_id = document.querySelector("#user-location").getAttribute("data-location");
+            console.log('Done! Here is the image info: ', result.info);
+            photoURL = result.info.url;
+            };
+    }
+);
+
+```
 
 ### Contributing 
 ✍️ 
-David Chao, Lauren Duker & Scott Everett are the author's of this application. 
+David Chao, Lauren Duker & Scott Everett are the authors of this application. 
 
 Find additional work here: 
 
